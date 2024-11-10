@@ -1,7 +1,7 @@
 import React from "react";
 import { categories } from "../assets/data";
 
-const Categories = () => {
+const Categories = ({ category, setCategory }) => {
   return (
     <section id="categories" className="max-padd-container pt-16">
       <div className="flexBetween pb-20">
@@ -16,7 +16,12 @@ const Categories = () => {
       <div className="flexStart gap-12 flex-wrap">
         {categories.map((item) => (
           <div id={item.name} key={item.name} className="flexCenter flex-col">
-            <div className="p-8 rounded-2xl cursor-pointer bg-primary transform transition-transform duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/50">
+            <div
+              onClick={() =>
+                setCategory((prev) => (prev === item.name ? "All" : item.name))
+              }
+              className="p-8 rounded-2xl cursor-pointer bg-primary transform transition-transform duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/50"
+            >
               <img
                 src={item.image}
                 alt="categoryImg"
@@ -25,7 +30,15 @@ const Categories = () => {
                 className="object-cover h-32"
               />
             </div>
-            <h4 className="mt-6 medium-18">{item.name}</h4>
+            <h4
+              className={`mt-6 medium-18 ${
+                category === item.name
+                  ? "border-b-4 border-secondary"
+                  : "border-white"
+              }`}
+            >
+              {item.name}
+            </h4>
           </div>
         ))}
       </div>

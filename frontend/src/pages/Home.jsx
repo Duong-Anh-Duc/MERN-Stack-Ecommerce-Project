@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Categories from "../components/Categories";
 import Features from "../components/Features";
 import Hero from "../components/Hero";
+import Offer from "../components/Offer";
 import ProductDisplay from "../components/ProductDisplay";
 const Home = () => {
   const [category, setCategory] = useState("All");
@@ -10,7 +11,8 @@ const Home = () => {
       <Hero />
       <Features />
       <Categories category={category} setCategory={setCategory} />
-      <ProductDisplay />
+      <ProductDisplay category={category} />
+      <Offer />
     </>
   );
 };

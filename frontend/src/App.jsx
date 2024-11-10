@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/verify" element={<Verify />} />
         <Route path="/myorders" element={<Myorders />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

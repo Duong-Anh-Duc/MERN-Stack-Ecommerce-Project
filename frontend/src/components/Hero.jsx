@@ -4,7 +4,10 @@ import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Hero = () => {
   return (
-    <section className="max-padd-container bg-hero bg-center bg-cover bg-no-repeat h-[777px] w-full">
+    <section
+      id="home"
+      className="max-padd-container bg-hero bg-center bg-cover bg-no-repeat h-[777px] w-full"
+    >
       <div className="relative max-w-[666px] top-44">
         <h4 className="flex items-baseline gap-x-2 uppercase text-secondary medium-18">
           Modern collection <BsFire />

@@ -57,7 +57,9 @@ const Header = () => {
               className="text-[22px] text-white
             bg-secondary h-9 w-9 p-2 rounded-xl"
             />
-            <span className="bg-white text-sm absolute -top-2 -right-3 flexCenter w-5 h-5 rounded-full shadow-md"></span>
+            <span className="bg-white text-sm absolute -top-2 -right-3 flexCenter w-5 h-5 rounded-full shadow-md">
+              0
+            </span>
           </Link>
           {!token ? (
             <button className="btn-outline rounded-full">Login</button>

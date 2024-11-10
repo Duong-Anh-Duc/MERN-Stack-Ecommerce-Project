@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Item = ({ product }) => {
-  const [cartItems, setCartItems] = useState(true);
+  const { cartItems, addToCart, removeFromCart } = useContext(ShopContext);
   return (
     <div>
       <Link
-        to={""}
+        to={`/product/${product._id}`}
         className="relative top-28 group bg-white flexCenter m-4 rounded-2xl
         ring-1 ring-slate-200/20 hover:shadow-sm"
       >
         <img
           src={product.image}
           alt="productImg"
-          height={122}
-          width={122}
+          height={222}
+          width={222}
           className="object-cover h-38"
         />
       </Link>
@@ -28,8 +29,9 @@ const Item = ({ product }) => {
         <div className="flexBetween mt-3">
           <div className="text-secondary bold-18">${product.price}</div>
           <div>
-            {!cartItems ? (
+            {!cartItems[product._id] ? (
               <FaPlus
+                onClick={() => addToCart(product._id)}
                 className="bg-white h-8 w-8 p-2 rounded-full
               shadow-inner cursor-pointer"
               />
@@ -38,9 +40,15 @@ const Item = ({ product }) => {
                 className="bg-white rounded-full flexCenter gap-2
               h-8"
               >
-                <FaMinus className="bg-primary h-6 w-6 p-1 ml-1 cursor-pointer rounded-full" />
-                <p>0</p>
-                <FaPlus className="bg-secondary h-6 w-6 p-1 ml-1 cursor-pointer rounded-full" />
+                <FaMinus
+                  onClick={() => removeFromCart(product._id)}
+                  className="bg-primary h-6 w-6 p-1 ml-1 cursor-pointer rounded-full"
+                />
+                <p>{cartItems[product._id]}</p>
+                <FaPlus
+                  onClick={() => addToCart(product._id)}
+                  className="bg-secondary h-6 w-6 p-1 ml-1 cursor-pointer rounded-full"
+                />
               </div>
             )}
           </div>
