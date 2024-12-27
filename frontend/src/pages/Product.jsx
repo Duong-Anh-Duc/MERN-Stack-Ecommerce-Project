@@ -13,6 +13,7 @@ const Product = () => {
   if (!product) {
     return <div className="h-1 pt-28">Product not Found</div>;
   }
+  console.log(product);
   return (
     <section className="max-padd-container py-20">
       <div>

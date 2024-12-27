@@ -7,10 +7,10 @@ import { TbLogout } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import Navbar from "./Navbar";
-const Header = () => {
+const Header = ({ setShowLogin }) => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [header, setHeader] = useState(false);
-  const [token, setToken] = useState(true);
+  const [token, setToken] = useState(false);
   const toggleMenu = () => {
     setMenuOpened(!menuOpened);
   };
@@ -62,7 +62,12 @@ const Header = () => {
             </span>
           </Link>
           {!token ? (
-            <button className="btn-outline rounded-full">Login</button>
+            <button
+              onClick={() => setShowLogin(true)}
+              className="btn-outline rounded-full"
+            >
+              Login
+            </button>
           ) : (
             <div className="group relative">
               <FaCircleUser className="text-2xl" />

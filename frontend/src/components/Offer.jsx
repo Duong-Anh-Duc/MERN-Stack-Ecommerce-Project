@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Offer = () => {
   const calculateTimeLeft = () => {
-    const targetDate = new Date("2024-12-20T12:15:00").getTime();
+    const targetDate = new Date("2025-12-20T12:15:00").getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
 
